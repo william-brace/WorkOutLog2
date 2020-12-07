@@ -1,0 +1,45 @@
+.title-and-input {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+
+    &__title {
+
+    }
+
+    &__input {
+        border-radius:0.5rem;
+        //border:0.1rem solid grey;
+        border:none;
+        padding:0.5rem 2rem;
+        outline:none;
+        text-align: center;
+
+        &--workout {
+            margin-left:2rem;
+        }
+        
+        &--big {
+            font-size:2.4rem;
+            width:22rem;
+            padding-top:2rem;
+            padding-bottom:1rem;
+            outline:none;
+            background-color:$color-grey;
+            border:none;
+            text-align: center;
+        }
+    }
+
+    &__icon {
+        height:4rem;
+        width:4rem;
+        margin-left:1rem;
+        fill:$color-green;
+    }
+
+    &__btn {
+        margin-left:2rem;
+    }
+}

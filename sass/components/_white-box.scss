@@ -1,0 +1,32 @@
+.white-box {
+    background-color:white;
+    border-radius:2rem;
+    //border:0.1rem solid grey;
+    transition: all 0.2s;
+    max-width:50rem;
+
+    @include respond(sevenhundredplus) {
+        min-width:50rem;
+        
+     }
+
+    &--notice {
+        width: 85vw;
+        padding:4rem;
+    }
+
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba(0,0,0, 0.164)
+    }
+
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0, 0.164)
+    }
+
+    margin:2rem;
+    
+    
+}
+

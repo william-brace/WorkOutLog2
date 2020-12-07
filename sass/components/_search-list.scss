@@ -1,0 +1,80 @@
+.search-list {
+    display:flex;
+    flex-direction:column;
+    // max-width:50rem;
+    min-width:35rem;
+    
+
+    @include respond(sevenhundredplus) {
+       min-width:50rem;
+       
+    }
+
+    &--exercise {
+        @include respond(onethousandplus) {
+            min-width:100rem;
+            
+         }
+    }
+
+    margin-top:3rem;
+    margin-bottom:3rem;
+    border:0.1px solid #ddd;
+    border-radius:2rem;
+    
+
+    &__input {
+        width: 100%; /* Full-width */
+        font-size:2rem;
+        padding: 1.2rem 2rem; /* Add some padding */
+        //border: 1px solid #ddd; /* Add a grey border */
+        text-align: center;
+        border:none;
+        border-radius:2rem 2rem 0 0 ;
+        outline:none;
+    }
+
+    &__list {
+        list-style-type: none;
+        overflow:hidden; 
+        overflow-y:scroll;
+        max-height:50vh;
+
+        @include respond(onethousandplus) {
+            min-height:27rem;
+            
+         }
+        
+    }
+
+    &__item {
+        border-bottom: 1px solid #ddd; /* Add a border to all links */
+        border-top: 1px solid #ddd; /* Add a border to all links */
+        margin-top: -1px; /* Prevent double borders */
+        background-color: #f6f6f6; /* Grey background color */
+        padding: 12px; /* Add some padding */
+        text-decoration: none; /* Remove default text underline */
+        font-size: 18px; /* Increase the font-size */
+        color: black; /* Add a black text color */
+        display: block; /* Make it into a block element to fill the whole list */
+        text-align:center;
+
+        &--selected {
+            background-color:$color-light-green;
+        }
+
+    }
+
+    &__btn {
+        width:100%;
+        
+        font-size:2rem;
+        padding-top:0.5rem;
+        padding-bottom:0.5rem;
+        border:none;
+
+        border-radius:0 0 2rem 2rem;
+    }
+
+
+}

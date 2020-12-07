@@ -1,0 +1,37 @@
+.max-width {
+    width:90vw;
+}
+
+.flex-col-center {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+}
+
+.flex-row {
+    display:flex;
+    flex-direction:row;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.grid {
+    // display:grid;
+    //  grid-template-rows: repeat(3,1fr);
+    //  grid-template-columns: repeat(3,1fr);
+    
+
+    // grid-gap:2rem;
+
+    display: grid;
+    grid-template-rows: repeat(2, minmax(560px, min-content));
+    grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
+    
+    /* This is better for small screens, once min() is better supported */
+    /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
+    grid-gap: 1rem;
+    /* This is the standardized property now, but has slightly less support */
+    /* gap: 1rem */
+}

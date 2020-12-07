@@ -1,0 +1,20 @@
+{
+  "name": "workoutlog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w",
+    "build": "webpack -w"
+  },
+  "author": "William Brace",
+  "license": "ISC",
+  "dependencies": {
+    "uniqid": "^5.2.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

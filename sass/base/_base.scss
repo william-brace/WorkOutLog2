@@ -1,0 +1,51 @@
+html {
+    box-sizing:border-box;
+    font-size:50%;
+
+    @include respond(threeseventyfiveplus) {
+        font-size:55%;
+    }
+    
+    @include respond(sevenhundredplus) {
+    }
+
+    @include respond(onethousandplus) {
+        font-size:62.5%;
+    }
+
+    @include respond(fourteenHundredPlus) {
+        font-size:80%;
+    }
+
+    @include respond(eighteenHundredPlus) {
+        font-size:100%;
+    }
+
+
+}
+
+
+
+* {
+    margin:0;
+    padding:0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    
+    
+}
+
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    font-size:3rem;
+    line-height:1.6;
+
+    background-color: $color-grey;
+
+}
+

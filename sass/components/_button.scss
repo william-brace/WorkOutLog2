@@ -1,0 +1,42 @@
+.btn {
+    display:inline-block;
+    border-radius:10rem;
+    width:20rem;
+    font-size:2rem;
+    text-align: center;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    text-decoration:none;
+    color:white;
+    transition: all 0.2s;
+
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba(0,0,0, 0.164)
+    }
+
+    &:active {
+        transform: translateY(-0.1rem);
+        box-shadow: 0 0.5rem 1rem rgba(0,0,0, 0.164)
+    }
+    
+    &--green {
+        background-color:$color-green;      
+    }
+
+    &--blue {
+        background-color:blue;
+        margin-top:1rem;
+        margin-bottom:1rem;
+    }
+
+    &--red {
+        background-color:red;
+        margin-top:1rem;
+        margin-bottom:1rem;
+    }
+
+}
+
+
+

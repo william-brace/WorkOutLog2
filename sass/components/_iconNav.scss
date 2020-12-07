@@ -1,0 +1,48 @@
+.nav {
+    position:fixed;
+    bottom:0;
+    width: 100%;
+    height: 55px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    display: flex;
+    overflow-x: auto;
+    margin-top:3rem;
+
+    &__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        min-width: 50px;
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: sans-serif;
+        font-size: 13px;
+        color: #444444;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
+        transition: background-color 0.1s ease-in-out;
+
+        &:hover {
+            background-color: #eeeeee;
+        }
+        
+        &--active {
+            color: $color-green;
+        }
+    }
+
+    &__icon {
+        font-size: 2.5rem;
+    }
+
+    &__text {
+        font-size:1.2rem;
+    }
+
+    @include respond(onethousandplus) {
+        display:none;
+    }
+}

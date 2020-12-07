@@ -1,0 +1,70 @@
+.topNav {
+    background-color: $color-dark;
+    color:white;
+    
+    display:none;
+    flex-direction:row;
+    justify-content:space-between;
+    
+
+
+    &__title {
+        font-size: 3.8rem;
+        text-decoration:none;
+        color:white;
+        margin-left:9rem;
+
+        font-weight: bold;
+
+
+        &:hover {
+            color:$color-green;
+        }
+    }
+    &__linkGroup {
+
+        display:flex;
+        justify-content:space-between;
+        align-items: center;
+        width:50vw;
+        margin-right:8rem;
+        list-style: none;
+    }
+
+    &__link {
+        font-size: 1.8rem;
+        text-decoration:none;
+        color:white;
+
+        &::after {
+            content: '';
+            display:block;
+            width:0;
+            height:0.2rem;
+            background-color:$color-green;
+            transition: width .2s;
+            position:relative;
+            bottom:0.5rem;
+        }
+
+        &:hover::after {
+            width:100%;
+            transition: width .2s;
+        }
+
+
+
+        &:hover {
+            color:$color-green;
+            transition: .2s;
+        }
+
+        // &--active {
+        //     color:$color-green;
+        // }
+    }
+    
+    @include respond(onethousandplus) {
+        display:flex;
+    }
+}
