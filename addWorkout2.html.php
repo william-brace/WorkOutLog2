@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +32,7 @@
 
 
 
-    <title>Document</title>
+    <title>WorkOutLog | Design Workout</title>
 </head>
 <body>
 
@@ -34,11 +40,13 @@
     $path = $_SERVER['DOCUMENT_ROOT'];
     $path .= "/WorkOutLog/topNav.html.php";
     include_once($path); ?>
+
+    <div id="addWorkout2-page"></div>
     
     <form action="/WorkOutLog/includes/finishWorkout.php"  method="post">
     <div class="title-and-input flex-col-center">
         <div class="flex-row">
-            <input type=text class="title-and-input__input--big" name=title placeholder="Name your workout" id="workout-title-input" id="workout-title-input" ></input>
+            <input type=text class="title-and-input__input--big" name=title placeholder="Name your workout" id="workout-title-input" id="workout-title-input" maxlength="10"></input>
             <ion-icon class="title-and-input__icon" name="create-sharp"></ion-icon>
         </div>
 
@@ -48,7 +56,9 @@
         <script>
             
         </script>
-    <label class="switch"><input type="checkbox" id="togBtn"><div class="slider round"></div></label>
+    <div class="slider__container">
+        <label class="switch"><input type="checkbox" id="togBtn"><div class="slider round"></div></label>
+    </div>
     <div class="flex-container" id="exercise-container">
     </div>
     
@@ -194,9 +204,9 @@
         </div>
     </div>
 
-    <div class="flex-container flex-container--space-around">
-        <a  class="btn btn--blue" id="finish-workout-btn" name="finish-workout-submit">Finish Workout</a>
-        <a href="/WorkOutlog/profile.html.php" class="btn btn--red" id=cancel-workout-btn> Cancel Workout </a>
+    <div class="flex-container flex-container--finishCancelWorkout">
+        <a  class="btn btn--blue btn--finishWorkout" id="finish-workout-btn" name="finish-workout-submit">Finish Workout</a>
+        <a href="/WorkOutlog/profile.html.php" class="btn btn--red btn--cancelWorkout" id=cancel-workout-btn> Cancel Workout </a>
     </div>
 <!-- 
      -->
@@ -205,27 +215,13 @@
 
     <div class="spacer"></div>
 
-    <nav class="nav">
-        <a href="/WorkOutlog/index.html.php" id="bottomnav-home" class="nav__link">
-            <ion-icon class="nav__icon" name="home-sharp"></ion-icon>
-            <span class="nav__text">HOME</span>
-        </a>
-        <a href="/WorkOutlog/profile.html.php" class="nav__link">
-            <ion-icon class="nav__icon" name="person-sharp"></ion-icon>
-            <span class="nav__text">PROFILE</span>
-        </a>
+    <?php
+
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/WorkOutLog/bottomNav.html.php";
+    include_once($path); 
     
-        <a  id="bottomnav-addWorkout" class="nav__link nav__link--active" >
-            <ion-icon class="nav__icon" name="add-circle-sharp"></ion-icon>                
-            <span class="nav__text">ADD WORKOUT</span>
-        </a>
-
-        <a href="/WorkOutlog/progress.html.php" class="nav__link progress">
-            <ion-icon class="nav__icon" name="bar-chart-sharp"></ion-icon>                
-            <span class="nav__text">PROGRESS</span>
-        </a>
-    </nav>
-
+    ?>
     
     
 </body>

@@ -127,7 +127,11 @@ export const addExercises = () => {
                 workout = JSON.stringify(workout);
 
                 localStorage.setItem('workout', workout);
+
+
             }
+
+            item.classList.remove("search-list__item--selected");
         }
     })
 }

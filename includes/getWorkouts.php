@@ -13,9 +13,12 @@ $username = $_SESSION['username'];
 
 //echo $workout_count;
 
+
+
  
 
 $getWorkoutsQuery = "SELECT * FROM workout WHERE username = '$username'";
+
 
 $getWorkoutsQuery_result = mysqli_query($connect, $getWorkoutsQuery);
 

@@ -3,14 +3,14 @@
 session_start();
 
 if (isset($_POST['signin-submit'])) {
-    echo "recieveing informarton";
+    
 
     include 'db.php';
 
     $username = $_POST['username'];
     $password = $_POST['current-password'];
 
-    echo $username . $password;
+    
 
     $username = mysqli_real_escape_string($connect, $username);
     $password = mysqli_real_escape_string($connect, $password);
@@ -38,7 +38,7 @@ if (isset($_POST['signin-submit'])) {
             $db_username = $row['username'];
             $db_password = $row['password'];
 
-            echo "db username is " . $db_username . " and db password is " . $db_password;
+            
 
 
             if (password_verify($password, $db_password))

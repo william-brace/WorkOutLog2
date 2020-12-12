@@ -18,20 +18,17 @@
 }
 
 .grid {
-    // display:grid;
-    //  grid-template-rows: repeat(3,1fr);
-    //  grid-template-columns: repeat(3,1fr);
-    
 
-    // grid-gap:2rem;
-
+    background-color:red;
+    width:100vw;
+  
     display: grid;
-    grid-template-rows: repeat(2, minmax(560px, min-content));
-    grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
-    
-    /* This is better for small screens, once min() is better supported */
-    /* grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr)); */
-    grid-gap: 1rem;
-    /* This is the standardized property now, but has slightly less support */
-    /* gap: 1rem */
+    grid-template-rows:repeat(auto-fit, minmax(50rem, 70rem));
+    grid-template-columns:repeat(auto-fit, 40rem);
+  //grid-template-columns:30% 1fr 2fr;
+  
+  // grid-row-gap:20px;
+  // grid-column-gap:30px;
+  
+  grid-gap:0px;
 }

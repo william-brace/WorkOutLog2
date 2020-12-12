@@ -52,7 +52,7 @@ export const createExerciseCards = () => {
                                             <span>${workout.unit}</span>
                                             </div>
                                         </div>
-                                            <ion-icon class="card__icon card__icon--checkmark" name="checkmark-circle-sharp"></ion-icon>
+                                            <button type=button class="btn btn--green card__btn card__btn--SaveSet">Save Set</button>
                                             <ion-icon class="card__icon card__icon--close-circle close-circle-set" name="close-circle-sharp"></ion-icon>
                                     </div>`;
                                         
@@ -60,7 +60,7 @@ export const createExerciseCards = () => {
 
                                 
                             });
-                            markup = markup + `<button type=button class="btn btn--green card__btn"> Add Set </button>
+                            markup = markup + `<button type=button class="btn btn--green card__btn card__btn--AddSet"> Add New Set </button>
                                             </div>
                                         </div>`;          
         }         
@@ -90,13 +90,13 @@ export const createExerciseCards = () => {
                                     <input class="card__input" type="number" min=0 value="${set.reps}" ${set.submit ? `readonly` : ''}>
                                 </div>
                                 <span class="card__text"></span> 
-                                <ion-icon class="card__icon card__icon--checkmark" name="checkmark-circle-sharp"></ion-icon>
+                                <button type=button class="btn btn--green card__btn card__btn--SaveSet">Save Set</button>
                                 <ion-icon class="card__icon card__icon--close-circle close-circle-set" name="close-circle-sharp"></ion-icon>         
                             </div>`;
 
                         markup = markup + setMarkup;
                     });
-                    markup = markup + `<button type=button class="btn btn--green card__btn"> Add Set </button>
+                    markup = markup + `<button type=button class="btn btn--green card__btn card__btn--AddSet"> Add New Set </button>
                                     </div>
                                 </div>`; 
         }
@@ -117,39 +117,46 @@ export const createExerciseCards = () => {
                             
                                 let setMarkup = 
                             `<div class="card__slot ${set.submit ? `card__slot--submit` : ''}">
+
                                 <div class="flex-col-center">
                                     <span>Set</span>
                                     <span class="card__number"> ${set.setNum} </span>
                                 </div>
-                                <span class="card__text">for</span>
+                                <span class="card__text ">for</span>
                                 <div class="flex-col-center">
                                     <span>distance</span>
-                                    <div>
-                                        <input class="card__input" type="number" min=0 value="${set.distance}" ${set.submit ? `readonly` : ''}>
-                                        <span>km</span>
+                                    <div class="flex-row">
+                                        <input class="card__input card__input--small" type="number" min=0 value="${set.distance}" ${set.submit ? `readonly` : ''}>
+                                        <span style="margin-left:0.5rem">km</span>
                                     </div>
                                 </div>
-                                <span class="card__text">in</span>
-                                <div class="flex-col-center">
-                
-                                        <span>Hours</span>
-                                        <input class="card__input" type="number" min=0  value="${set.hours}" ${set.submit ? `readonly` : ''}></input>
-                                    
+                                <div style="display:flex;">
+                                    <span class="card__text ">in</span>
+                                    <div class="flex-col-center">
+                    
+                                            <span>Hours</span>
+                                            <input class="card__input card__input--small" type="number" min=0  value="${set.hours}" ${set.submit ? `readonly` : ''}></input>
                                         
-                                </div>
-                                <span class="card__text">:</span>
-                                <div class="flex-col-center">
-                                    <span>Minutes</span>
-                                    <input class="card__input" type="number" min=0 value="${set.minutes}" ${set.submit ? `readonly` : ''}></input>
-                                </div>
-                                <span class="card__text">:</span>
-                                <div class="flex-col-center">
-                                    <span>Seconds</span>
-                                    <input class="card__input" type="number" min=0  value="${set.seconds}" ${set.submit ? `readonly` : ''}></input>
+                                            
+                                    </div>
+                                
+                                    <span class="card__text card__text--cardio">:</span>
+                                    <div class="flex-col-center">
+                                        <span>Minutes</span>
+                                        <input class="card__input card__input--small" type="number" min=0 value="${set.minutes}" ${set.submit ? `readonly` : ''}></input>
+                                    </div>
+                                    <span class="card__text card__text--cardio">:</span>
+                                    <div class="flex-col-center">
+                                        <span>Seconds</span>
+                                        <input class="card__input card__input--small" type="number" min=0  value="${set.seconds}" ${set.submit ? `readonly` : ''}></input>
+                                    </div>
                                 </div>
 
-                                <ion-icon class="card__icon card__icon--checkmark" name="checkmark-circle-sharp"></ion-icon>
-                                <ion-icon class="card__icon card__icon--close-circle close-circle-set" name="close-circle-sharp" ></ion-icon>
+
+                                
+                                    <button type=button class="btn btn--green card__btn card__btn--SaveSet">Save Set</button>                                
+                                    <ion-icon class="card__icon card__icon--close-circle close-circle-set" name="close-circle-sharp" ></ion-icon>
+                            
                             </div>`;
 
                             markup = markup + setMarkup;
@@ -158,9 +165,9 @@ export const createExerciseCards = () => {
                             //original time inputs
                             // <span>time</span>
                             // <input class="card__input html-duration-picker"  value="${set.time}" ${set.submit ? `readonly` : ''}></input>
-
+                            //<button type=button class="btn btn--green card__btn card__btn--SaveSet">Save Set</button>
                             
-                      markup = markup + `<button type=button class="btn btn--green card__btn"> Add Set </button>
+                      markup = markup + `<button type=button class="btn btn--green card__btn card__btn--AddSet"> Add New Set </button>
                                     </div>
                                 </div>`; 
                     }

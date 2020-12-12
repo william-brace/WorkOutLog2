@@ -2,8 +2,20 @@
 {
     display:flex;
     flex-direction:column;
-    min-width:30rem;
+    min-width:25rem;
+    max-width: 300px;
+   
 
+    @include respond(threeseventyfiveplus) {
+        max-width:360px;
+    }
+    
+    @include respond(sevenhundredplus) {
+        max-width:1000000px;;
+    }
+
+   
+    
     background-color:white;
     //border:0.1px solid grey;
     border-radius:2rem;
@@ -47,6 +59,7 @@
         font-size:1.5rem;
         padding:1rem 3rem;
         width:100%;
+        flex-wrap: wrap;
 
         //border-top:0.1rem solid grey;
         //border-bottom:0.1rem solid grey;
@@ -76,16 +89,25 @@
         border-radius:0.5rem;
         border:0.1rem solid grey;
         text-align: center;
+
+        &--small
+        {
+            width:3rem;
+        }
     }
 
     &__text {
-        margin:3.2rem 1rem 0rem 1rem;
+        margin:3rem 0.5rem 0rem 0.5rem;
+
+        &--cardio {
+            margin: 3rem 0.2rem 0rem 0.2rem;
+        }
     }
 
     &__icon {
         width: 3rem;
         height:3rem;
-        margin:3rem 1rem 0rem 1rem;
+        margin:2.5rem 1rem 0rem 1rem;
 
         &--workout {
             align-self:flex-end;
@@ -108,11 +130,28 @@
         border:none;
 
         font-size:1.2rem;
-        padding:0.5rem 3rem;
-        width:12rem;
+        padding:1rem 3rem;
+        width:13rem;
+        height:4rem;
 
         &--workout {
             width:14rem;
         }
+
+        &--SaveSet {
+            width:8rem;
+            padding:0rem 1.5rem;
+            border-radius:100;
+            height:3rem;
+            margin:2.5rem 1rem 0rem 1rem;
+            
+        }
+
+        &--AddSet {
+            width:15rem;
+            font-size:1.5rem;
+        }
+
+
     }
 }

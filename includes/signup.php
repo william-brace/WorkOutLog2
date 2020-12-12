@@ -2,7 +2,6 @@
 session_start();
 
 if (isset($_POST['signup-submit'])) {
-    echo "recieveing informarton";
 
     include 'db.php';
 

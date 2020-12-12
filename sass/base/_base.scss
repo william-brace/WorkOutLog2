@@ -1,9 +1,9 @@
 html {
     box-sizing:border-box;
-    font-size:50%;
+    font-size:40%;
 
     @include respond(threeseventyfiveplus) {
-        font-size:55%;
+        font-size:45%;
     }
     
     @include respond(sevenhundredplus) {

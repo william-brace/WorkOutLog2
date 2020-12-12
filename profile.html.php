@@ -16,7 +16,7 @@ session_start();
 
     <!--fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>WorkOutLog | Your Workouts</title>
 
      <!-- javascript -->
      <script type='module' src="/WorkOutLog/src/controllers/workoutController.js" ></script>
@@ -27,6 +27,8 @@ session_start();
     $path = $_SERVER['DOCUMENT_ROOT'];
     $path .= "/WorkOutLog/topNav.html.php";
     include_once($path); ?> 
+
+    <div id=profile-page></div>
 
     <?php  
     if (isset($_SESSION['username'])) { 
@@ -40,15 +42,15 @@ session_start();
             <a href="/WorkOutLog/includes/signout.php" class="btn btn--red  title-and-input__btn card__btn" id="sign-out-btn">Sign Out</a>
         </div>
         <div class="flex-row">
-            <span>View by</span>
-            <input type=text class="title-and-input__input title-and-input__input--workout"></input>
+            <!-- <span>View by</span>
+            <input type=text class="title-and-input__input title-and-input__input--workout"></input> -->
             
 
 
         </div>
     </div>
 
-    <div class="flex-container" id="workout-container">
+    <div class="flex-container flex-container--space-around" id="workout-container">
         <script>
             
             
@@ -188,7 +190,7 @@ session_start();
             $workout_count = mysqli_num_rows($get_count_query_result);
             $workout_count = ceil($workout_count/2);
             
-            echo $workout_count;
+            //echo $workout_count;
 
             for ($i=1; $i <= $workout_count; $i++) {
                 echo"<li><a href='profile.html.php?page={$i}'>{$i}</a></li>";
@@ -215,27 +217,16 @@ session_start();
     ?>
 
     <div class="spacer"></div>
-    
-    <nav class="nav">
-        <a href="/WorkOutlog/index.html.php" id="bottomnav-home" class="nav__link">
-            <ion-icon class="nav__icon" name="home-sharp"></ion-icon>
-            <span class="nav__text">HOME</span>
-        </a>
-        <a href="/WorkOutlog/profile.html.php" class="nav__link nav__link--active">
-            <ion-icon class="nav__icon" name="person-sharp"></ion-icon>
-            <span class="nav__text">PROFILE</span>
-        </a>
-    
-        <a  id="bottomnav-addWorkout" class="nav__link">
-            <ion-icon class="nav__icon" name="add-circle-sharp"></ion-icon>                
-            <span class="nav__text">ADD WORKOUT</span>
-        </a>
 
-        <a href="/WorkOutlog/progress.html.php" class="nav__link ">
-            <ion-icon class="nav__icon" name="bar-chart-sharp"></ion-icon>                
-            <span class="nav__text">PROGRESS</span>
-        </a>
-        </nav>
+    <?php
+
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/WorkOutLog/bottomNav.html.php";
+    include_once($path); 
+    
+    ?>
+    
+    
     
 </body>
 </html>

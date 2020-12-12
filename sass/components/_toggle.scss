@@ -18,6 +18,10 @@
     -webkit-transition: .4s;
     transition: .4s;
      border-radius: 34px;
+
+     &__container {
+      margin-top:1rem;
+     }
   }
   
   .slider:before {
@@ -67,3 +71,4 @@
   }
   
   /*--------- END --------*/
+

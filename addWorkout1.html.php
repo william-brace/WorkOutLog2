@@ -1,3 +1,10 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +19,7 @@
 
     <!--fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Work Out Log | Add a Workout</title>
 
     <!-- javascript -->
     <script type='module' src="/WorkOutLog/src/controllers/workoutController.js" ></script>
@@ -25,6 +32,8 @@
     $path = $_SERVER['DOCUMENT_ROOT'];
     $path .= "/WorkOutLog/topNav.html.php";
     include_once($path); ?>
+
+    <div id="addWorkout1-page"></div>
     
     <div class="flex-container flex-container--space-around" style="margin-top:5rem;">
         <div class="white-box">
@@ -69,26 +78,14 @@
     </nav> -->
     <div class="spacer"></div>
 
-    <nav class="nav">
-        <a href="/WorkOutlog/index.html.php" id="bottomnav-home" class="nav__link">
-            <ion-icon class="nav__icon" name="home-sharp"></ion-icon>
-            <span class="nav__text">HOME</span>
-        </a>    
-        <a href="/WorkOutlog/profile.html.php" class="nav__link">
-            <ion-icon class="nav__icon" name="person-sharp"></ion-icon>
-            <span class="nav__text">PROFILE</span>
-        </a>
-    
-        <a  id="bottomnav-addWorkout" class="nav__link nav__link--active">
-            <ion-icon class="nav__icon" name="add-circle-sharp"></ion-icon>                
-            <span class="nav__text">ADD WORKOUT</span>
-        </a>
+    <?php
 
-        <a href="/WorkOutlog/progress.html.php" class="nav__link progress">
-            <ion-icon class="nav__icon" name="bar-chart-sharp"></ion-icon>                
-            <span class="nav__text">PROGRESS</span>
-        </a>
-    </nav>
+    $path = $_SERVER['DOCUMENT_ROOT'];
+    $path .= "/WorkOutLog/bottomNav.html.php";
+    include_once($path); 
+    
+    ?>
+
     
 </body>
 </html>

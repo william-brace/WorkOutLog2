@@ -18,14 +18,19 @@ import * as workoutView from '../views/workoutView.js';
         const bottomNavIcons = document.getElementsByClassName('nav__link');
         const bottomNavHome = document.getElementById('bottomnav-home');
         const bottomNavAddWorkout = document.getElementById('bottomnav-addWorkout');
-
-        console.log(bottomNavAddWorkout);
+        const bottomNavProfile = document.getElementById('bottomnav-profile');
+        const bottomNavProgress = document.getElementById('bottomnav-progress');
         
+        //Index page Elements
+        const indexPage = document.getElementById('index-page');
+
         //AddWorkout1 page Elements
+        const addWorkout1Page = document.getElementById('addWorkout1-page');
         const createNewWorkout = document.getElementById('create-new-workout');
         const btnAddWorkout = document.getElementById('btn-add-workout');
 
         //AddWorkout2 page Elements
+        const addWorkout2Page = document.getElementById('addWorkout2-page');
         const workoutTitleInput = document.getElementById('workout-title-input');
         const workoutDateInput = document.getElementById('date-input');
         const addExercisesBtn = document.querySelector('#btn-add-exercises');
@@ -34,7 +39,11 @@ import * as workoutView from '../views/workoutView.js';
         const cancelWorkoutBtn = document.querySelector('#cancel-workout-btn');
         
         //Profile page Elements
+        const profilePage = document.getElementById('profile-page');
         const signOutBtn = document.querySelector('#sign-out-btn');
+
+        //Progress page elements
+        const progressPage = document.getElementById('progress-page');
 
         //If top nav is on page
         if (topNavAddWorkout) {
@@ -55,13 +64,38 @@ import * as workoutView from '../views/workoutView.js';
         if (bottomNavHome) {
             console.log('BOTTOM NAV IS ON PAGE');
 
+            if (bottomNavAddWorkout) {
+                console.log("ass workout button is found");
+            }
+
+            //If on AddWorkout 1 page
+            if (addWorkout1Page || addWorkout2Page) {
+                bottomNavAddWorkout.classList.add("nav__link--active");
+            }
+            else if (profilePage) {
+                bottomNavProfile.classList.add("nav__link--active");
+            }
+            else if (progressPage) {
+                bottomNavProgress.classList.add("nav__link--active");
+            }
+            else if (indexPage) {
+                bottomNavHome.classList.add("nav__link--active");
+            }
+
             bottomNavAddWorkout.addEventListener('click', () => {
                 console.log('bottom nav is clicked');
+
+                //Remove nav__link--active from all links
+                //Add nav__link--active to the link that is clicked
+
+                console.log('hello');
 
                 let workout = JSON.parse(localStorage.getItem('workout'));
 
                 if (workout) {
                     window.location = "addWorkout2.html.php";
+
+                    
                 }
                 else {
                     window.location = "addWorkout1.html.php";;
@@ -195,7 +229,7 @@ import * as workoutView from '../views/workoutView.js';
                 console.log(e.target.classList);
                 
                 //If checkmark is clicked
-                if (e.target.classList.contains('card__icon--checkmark'))
+                if (e.target.classList.contains('card__btn--SaveSet'))
                 {
                     console.log('checkmark pressed!');
                     workoutModel.submitSet(e.target);
@@ -215,7 +249,7 @@ import * as workoutView from '../views/workoutView.js';
                     workoutView.createExerciseCards(); 
                 }
 
-                if (e.target.classList.contains('card__btn')) {
+                if (e.target.classList.contains('card__btn--AddSet')) {
                     workoutModel.addSet(e.target);
                     workoutView.createExerciseCards();
 
@@ -324,6 +358,7 @@ import * as workoutView from '../views/workoutView.js';
        //call ajax 
        const xhr = new XMLHttpRequest();
        xhr.open('GET', "/WorkOutlog/includes/getWorkouts.php", true);
+
    
        //send ajax
        xhr.send()
@@ -332,16 +367,22 @@ import * as workoutView from '../views/workoutView.js';
        xhr.onreadystatechange = () => {
            if (xhr.readyState == 4) {
                if (xhr.status == 200) {
-                   console.log(`getWorkouts ${xhr.responseText}`);
+                   console.log(`getWorkouts ${xhr.response}`);
+                   console.log(`getWorkouts response is a ${typeof(xhr.response)}`)
+
+                //    if (xhr.response)
+                //    {
+                    let allWorkouts = JSON.parse(xhr.response);
+                    //console.log(workouts);
+    
+                    allWorkouts = JSON.stringify(allWorkouts);
+    
+                    localStorage.setItem('allWorkouts', allWorkouts);
+                 
+                    console.log('getWorkouts is complete!');
+                //    }
    
-                   let allWorkouts = JSON.parse(xhr.responseText);
-                   //console.log(workouts);
-   
-                   allWorkouts = JSON.stringify(allWorkouts);
-   
-                   localStorage.setItem('allWorkouts', allWorkouts);
-                
-                   console.log('getWorkouts is complete!');
+                  
 
                    const createNewWorkout = document.getElementById('create-new-workout');
                    const signOutBtn = document.querySelector('#sign-out-btn');
